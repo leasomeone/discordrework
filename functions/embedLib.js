@@ -1,4 +1,4 @@
-module.exports = { description, title, error };
+module.exports = { description, title, error, errorDesc };
 const { EmbedBuilder } = require('discord.js');
 
 function description(title, description) {
@@ -21,5 +21,13 @@ function error(title) {
 	const Embed = new EmbedBuilder()
 		.setColor(0xFF0000)
 		.setTitle(title);
+	return Embed;
+}
+
+function errorDesc(title, description) {
+	const Embed = new EmbedBuilder()
+		.setColor(0xFF0000)
+		.setTitle(title)
+		.setDescription(description);
 	return Embed;
 }

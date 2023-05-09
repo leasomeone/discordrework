@@ -6,6 +6,7 @@ module.exports = {
 		.setName('ping')
 		.setDescription('Test command'),
 	async execute(interaction) {
+		console.log(lol)
 		await interaction.reply({ embeds: [embed.title('Pong!')] });
 	},
-};
+};  
