@@ -1,8 +1,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
-const config = require('./configs/config.json');
-const testingConfig = require('./configs/testing-config.json')
+config = require('./configs/config.json');
+if (config.testing) { config = require('./configs/config-testing.json'); }
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent] });
 
 // slah commands registar - ./commands
@@ -40,11 +40,6 @@ for (const file of eventFiles) {
 // help i'm actually dying
 process.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
 
-// login
-if (config.testing) {
-	client.login(testingConfig.token);
-}
-else {
-	client.login(config.token);
-}
+client.login(config.token);
+
 

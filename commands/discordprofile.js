@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const timeLib = require('../functions/timeLib.js');
+const time = require('../functions/timeLib.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -18,9 +18,8 @@ module.exports = {
 			.setThumbnail(mentionned.avatarURL())
 			.setDescription('<@' + mentionned.id + '>')
 			.addFields(
-				{ name: 'Account Age', value: timeLib.timeSince(mentionned.createdAt), inline: false },
+				{ name: 'Account Age', value: time.timeSince(mentionned.createdAt), inline: false },
 			)
-			.setTimestamp();
 		await interaction.reply({ embeds: [embed] });
 	},
 };

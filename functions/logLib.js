@@ -1,7 +1,6 @@
 const winston = require('winston');
-const timeLib = require('./timeLib.js')
+const time = require('./timeLib.js')
 const config = require('../configs/config.json')
-const logsTimeDisplay = '[' + timeLib.formattedTime() + '] ';
 
 module.exports = { info, error, initLogger };
 
@@ -19,13 +18,13 @@ function initLogger() {
 
   
 async function info(text) {
-    logger.info(logsTimeDisplay + text)
-    console.info(logsTimeDisplay + text)
+    logger.info('[' + time.formattedTime() + '] ' + text)
+    console.info('[' + time.formattedTime() + '] ' + text)
     return;
 }
 
 async function error(text) {
-    logger.error(logsTimeDisplay + text)
-    console.error(logsTimeDisplay + text)
+    logger.error('[' + time.formattedTime() + '] ' + text)
+    console.error('[' + time.formattedTime() + '] ' + text)
     return;
 }
