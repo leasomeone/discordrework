@@ -1,3 +1,4 @@
 discord.js
 dotenv
 lodash
+minecraft-server-util
