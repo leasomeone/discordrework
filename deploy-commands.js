@@ -1,7 +1,7 @@
 const { REST, Routes } = require('discord.js');
 const fs = require('node:fs');
-const config = require('./configs/config.json');
-const testingConfig = require('./configs/config-testing.json')
+const config = require('./config.js');
+const testing = true;
 
 const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -12,7 +12,7 @@ for (const file of commandFiles) {
 }
 
 // Testing deploy
-if (config.testing) {
+if (testing) {
 	const rest = new REST({ version: '10' }).setToken(testingConfig.token);
 	(async () => {
 		try {

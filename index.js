@@ -1,8 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
-config = require('./configs/config.json');
-if (config.testing) { config = require('./configs/config-testing.json'); }
+const config = require('./config.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent] });
 
 // slah commands registar - ./commands

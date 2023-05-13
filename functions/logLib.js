@@ -1,16 +1,13 @@
 const winston = require('winston');
 const time = require('./timeLib.js')
-const config = require('../configs/config.json')
 
 module.exports = { info, error, initLogger };
 
 function initLogger() {
-    if (config.testing) { file = 'logs/testing-logs.log' } else { file = 'logs/logs.log'};
-
     logger = winston.createLogger({
         format: winston.format.simple(),
         transports: [
-            new winston.transports.File({ filename: file })
+            new winston.transports.File({ filename: 'logs/logs.log' })
         ],
     });
 }

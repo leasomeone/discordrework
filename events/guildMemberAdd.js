@@ -1,6 +1,5 @@
 const { Events, EmbedBuilder } = require('discord.js');
-config = require('../configs/config.json');
-if (config.testing) { config = require('../configs/config-testing.json'); }
+const config = require('../config.js');
 const time = require('../functions/timeLib.js');
 
 module.exports = {

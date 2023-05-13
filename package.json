@@ -18,6 +18,8 @@
   "homepage": "https://github.com/leasomeone/discordrework#readme",
   "dependencies": {
     "discord.js": "^14.11.0",
+    "dotenv": "^16.0.3",
+    "lodash": "^4.17.21",
     "winston": "^3.8.2"
   }
 }

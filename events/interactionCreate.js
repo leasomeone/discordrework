@@ -1,8 +1,7 @@
 const { Events, EmbedBuilder } = require('discord.js');
 const log = require('../functions/logLib.js')
 const role = require('../functions/rolesLib.js');
-config = require('../configs/config.json');
-if (config.testing) { config = require('../configs/config-testing.json'); }
+const config = require('../config.js');
 
 
 module.exports = {
