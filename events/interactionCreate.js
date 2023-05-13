@@ -1,4 +1,4 @@
-const { Events } = require('discord.js');
+const { Events, EmbedBuilder } = require('discord.js');
 const log = require('../functions/logLib.js')
 const role = require('../functions/rolesLib.js');
 config = require('../configs/config.json');
