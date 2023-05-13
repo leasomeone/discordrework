@@ -5,8 +5,9 @@ const time = require('../functions/timeLib.js');
 module.exports = {
 	name: Events.GuildMemberAdd,
 	async execute(member) {
-		member.client.channels.cache.get(config.welcomeChannelId).send(`Hello <@${member.id}>! welcome to the Misty's Lab. Do check out the <#830181778903269426> and the <#830197400441716777> channels to get a feel for the place and get some roles.\nEnjoy your stay!`)
+		member.client.channels.cache.get(config.welcomeChannelId).send(`Hello <@${member.id}>, welcome to Misty’s Lab! Check out <#830181778903269426>to get yourself equipped with some vanity roles, and <#830197400441716777> to read our rules.\nEnjoy your stay!`)
 		const embed = new EmbedBuilder()
+	
 			.setColor('#00FF00')
 			.setTitle('Someone joined')
 			.setThumbnail(member.avatarURL())
