@@ -1,6 +1,7 @@
 const { Events, EmbedBuilder } = require('discord.js');
 const log = require('../functions/logLib.js')
 const role = require('../functions/rolesLib.js');
+const embed = require('../functions/embedLib.js');
 const config = require('../config.js');
 
 
@@ -19,14 +20,14 @@ module.exports = {
 
 		if (!interaction.isChatInputCommand()) return;
 
-		const embed = new EmbedBuilder()
+		const logEmbed = new EmbedBuilder()
 			.setColor('#00FF00')
 			.setTitle('Executed command')
 			.setFooter({ text: interaction.user.tag, iconURL: interaction.user.avatarURL() })
 			.setDescription(interaction.commandName)
 			.addFields({ name: 'channel', value: '#' + interaction.channel.name, inline: true })
 			.setTimestamp();
-		interaction.client.channels.cache.get(config.logChannelId).send({ embeds: [embed] });
+		interaction.client.channels.cache.get(config.logChannelId).send({ embeds: [logEmbed] });
 
 
 		if (!interaction.isChatInputCommand()) return;

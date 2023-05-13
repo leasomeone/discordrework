@@ -13,13 +13,13 @@ for (const file of commandFiles) {
 
 // Testing deploy
 if (testing) {
-	const rest = new REST({ version: '10' }).setToken(testingConfig.token);
+	const rest = new REST({ version: '10' }).setToken(config.token);
 	(async () => {
 		try {
 			console.log(`Started refreshing ${commands.length} application (/) commands as testbot!`);
 
 			 const data = await rest.put(
-				Routes.applicationGuildCommands(testingConfig.clientId, testingConfig.guildId),
+				Routes.applicationGuildCommands(config.clientId, config.guildId),
 				{ body: commands },
 			 );
 
