@@ -1,4 +1,5 @@
 const dotenv = require('dotenv');
+const lodash = require('lodash');
 
 const result = dotenv.config();
 
@@ -8,7 +9,7 @@ if (!('error' in result)) {
   envs = result.parsed;
 } else {
   envs = {};
-  _.each(process.env, (value, key) => envs[key] = value);
+  lodash.each(process.env, (value, key) => envs[key] = value);
 }
 
 module.exports = envs;
