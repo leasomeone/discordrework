@@ -134,7 +134,7 @@ function selectVore() {
 }
 
 function selectCollector(interaction) {
-	log.info(interaction.customId + ' select menu with label: ' + interaction.values.label[0] + ' was pressed by: ' + interaction.user.username);
+	log.info(interaction.customId + ' select menu with value: ' + interaction.values[0] + ' was pressed by: ' + interaction.user.username);
 	switch (interaction.customId) {
 	case 'prounons':
 		toDelete = ['1106517899214073887', '1106517984463298571', '1106518045133897758', '1106518096795140099']
