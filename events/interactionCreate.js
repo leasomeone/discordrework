@@ -1,10 +1,35 @@
 const { Events } = require('discord.js');
 const log = require('../functions/logLib.js')
-const embed = require('../functions/embedLib.js');
+const role = require('../functions/rolesLib.js');
+config = require('../configs/config.json');
+if (config.testing) { config = require('../configs/config-testing.json'); }
+
 
 module.exports = {
 	name: Events.InteractionCreate,
 	async execute(interaction) {
+		if (interaction.isButton()) {
+			role.buttonCollector(interaction);
+			return;
+		}
+
+		if (interaction.isStringSelectMenu()) {
+			role.selectCollector(interaction);
+			return;
+		}
+
+		if (!interaction.isChatInputCommand()) return;
+
+		const embed = new EmbedBuilder()
+			.setColor('#00FF00')
+			.setTitle('Executed command')
+			.setFooter({ text: interaction.user.tag, iconURL: interaction.user.avatarURL() })
+			.setDescription(interaction.commandName)
+			.addFields({ name: 'channel', value: '#' + interaction.channel.name, inline: true })
+			.setTimestamp();
+		interaction.client.channels.cache.get(config.logChannelId).send({ embeds: [embed] });
+
+
 		if (!interaction.isChatInputCommand()) return;
 
 		const command = interaction.client.commands.get(interaction.commandName);

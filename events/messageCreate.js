@@ -1,6 +1,5 @@
-const { Events, EmbedBuilder } = require('discord.js');
-const embed = require('../functions/embedLib.js');
-const log = require('../functions/logLib.js')
+const { Events } = require('discord.js');
+const secret = require('../functions/secretMessages.js');
 
 module.exports = {
     name: Events.MessageCreate,
@@ -10,17 +9,13 @@ module.exports = {
 
         //	secret messages
 		if (message.content == 'jointest') {
-			if (message.author.id == '970394382912094218') {
-				message.client.emit('guildMemberAdd', message.author);
-				log.info('jointest ' + message.author.tag);
-				message.reply({ embeds: [embed.title('Here ya go')] });
-			}
-			else {
-				message.reply({ embeds: [embed.title('Ayo new phone who dis ?')] });
-			}
+			secret.joinTest(message);
+			return;
 		}
 
-
-
+		if (message.content == 'initroles') {
+			secret.initRoles(message);
+			return;
+		}
     }
 }

@@ -13,18 +13,15 @@ function initLogger() {
             new winston.transports.File({ filename: file })
         ],
     });
-    return;
 }
 
   
 async function info(text) {
     logger.info('[' + time.formattedTime() + '] ' + text)
     console.info('[' + time.formattedTime() + '] ' + text)
-    return;
 }
 
 async function error(text) {
     logger.error('[' + time.formattedTime() + '] ' + text)
     console.error('[' + time.formattedTime() + '] ' + text)
-    return;
 }

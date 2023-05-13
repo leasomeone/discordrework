@@ -7,5 +7,6 @@ if (config.testing) { config = require('../configs/config-testing.json'); }
 const time = require('../functions/timeLib.js');
 const embed = require('../functions/embedLib.js');
 const log = require('../functions/logLib.js')
+const role = require('../functions/rolesLib.js');
 
 const { logger } = require('../functions/logLib.js')
