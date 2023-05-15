@@ -147,13 +147,15 @@ function selectCollector(interaction) {
 			interaction.reply({ embeds: [embed.title('Succesfully removed you the roles')], ephemeral: true });
 			return;
 		}
-		roleid = interaction.values[0]
+		selected = interaction.values;
 		for (let i = 0; i < toDelete.length; i++) {
 			softDeleteRole(interaction, toDelete[i]);
 		}
-		roleToGibe = interaction.guild.roles.cache.get(roleid);
-		interaction.member.roles.add(roleToGibe);
-		interaction.reply({ embeds: [embed.description('Succesfully gave you the role:', '<@&' + roleToGibe.id + '>')], ephemeral: true });
+		specialroles = '';
+		for (let i = 0; i < selected.length; i++) {
+			gibeRoleSpecial(interaction, selected[i]);
+		}
+		interaction.reply({ embeds: [embed.description('Succesfully gave you the roles:', specialroles)], ephemeral: true });
 	break;
 
 
@@ -166,13 +168,15 @@ function selectCollector(interaction) {
 			interaction.reply({ embeds: [embed.title('Succesfully removed you the roles')], ephemeral: true });
 			return;
 		}
-		roleid = interaction.values[0]
+		selected = interaction.values;
 		for (let i = 0; i < toDelete.length; i++) {
 			softDeleteRole(interaction, toDelete[i]);
 		}
-		roleToGibe = interaction.guild.roles.cache.get(roleid);
-		interaction.member.roles.add(roleToGibe);
-		interaction.reply({ embeds: [embed.description('Succesfully gave you the role:', '<@&' + roleToGibe.id + '>')], ephemeral: true });
+		specialroles = '';
+		for (let i = 0; i < selected.length; i++) {
+			gibeRoleSpecial(interaction, selected[i]);
+		}
+		interaction.reply({ embeds: [embed.description('Succesfully gave you the roles:', specialroles)], ephemeral: true });
 	break;
 
 	case 'kinks':
@@ -185,7 +189,7 @@ function selectCollector(interaction) {
 			interaction.reply({ embeds: [embed.title('Succesfully removed you the roles')], ephemeral: true });
 			return;
 		}
-		const selected = interaction.values;
+		selected = interaction.values;
 		for (let i = 0; i < toDelete.length; i++) {
 			softDeleteRole(interaction, toDelete[i]);
 		}
