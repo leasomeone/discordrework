@@ -44,7 +44,7 @@ function selectGender() {
 				.setCustomId('prounons')
 				.setPlaceholder('Nothing selected')
 				.setMinValues(0)
-				.setMaxValues(5)
+				.setMaxValues(4)
 				.addOptions(
 					{
 						label: 'She/Her',
