@@ -43,6 +43,8 @@ function selectGender() {
 			new StringSelectMenuBuilder()
 				.setCustomId('prounons')
 				.setPlaceholder('Nothing selected')
+				.setMinValues(0)
+				.setMaxValues(5)
 				.addOptions(
 					{
 						label: 'She/Her',
