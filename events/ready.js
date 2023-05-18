@@ -22,6 +22,7 @@ module.exports = {
     once: true,
     execute(client) {
         log.initLogger();
+	log.info('started')
         log.info(`Started, and logged in as ${client.user.tag}`);
 
         client.user.setActivity(default_message, { type: default_activity });
