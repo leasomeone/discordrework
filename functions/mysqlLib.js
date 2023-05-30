@@ -8,7 +8,7 @@ function connect() {
         host: config.mysqlHost,
         user: config.mysqlUser,
         password: config.mysqlPass,
-        port: '/var/run/mysqld/mysqld.sock'
+        port: 3306,
       });
       
       con.connect(function(err) {
