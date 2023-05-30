@@ -7,7 +7,8 @@ function connect() {
     var con = mysql.createConnection({
         host: config.mysqlHost,
         user: config.mysqlUser,
-        password: config.mysqlPass
+        password: config.mysqlPass,
+        port: '/var/run/mysqld/mysqld.sock'
       });
       
       con.connect(function(err) {

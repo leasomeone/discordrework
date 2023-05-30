@@ -35,13 +35,13 @@ if (testing) {
 }
 //Prod deploy
 else {
-	const rest = new REST({ version: '10' }).setToken("MTEwNTQwMDUzMDUwNDc5ODIxOA.GJMAy3.QJFcZqeLc5NBx_8wOqlvKwBDw-Lslki9Ji9Wtg");
+	const rest = new REST({ version: '10' }).setToken();
 	(async () => {
 		try {
 			console.log(`Started refreshing ${commands.length} application (/) commands as bot!`);
 
 			 const data = await rest.put(
-				Routes.applicationCommands("1105400530504798218"),
+				Routes.applicationCommands()),
 				{ body: commands },
 			 );
 
