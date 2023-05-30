@@ -4,6 +4,7 @@ const util = require('minecraft-server-util');
 const mcServer = require('../functions/mcServerLib.js');
 const time = require('../functions/timeLib.js');
 const config = require('../config.js');
+const mysql =require('../functions/mysqlLib.js');
 
 
 // const default_activity = ActivityType.Playing;
@@ -22,6 +23,7 @@ module.exports = {
     once: true,
     execute(client) {
         log.initLogger();
+		mysql.connect();
 	log.info('started')
         log.info(`Started, and logged in as ${client.user.tag}`);
 

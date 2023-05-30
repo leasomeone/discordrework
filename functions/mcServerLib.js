@@ -43,7 +43,7 @@ async function serverInfo() {
 				return serverembed;
 			}
 			catch (e) {
-				return embed.errorDesc('Server is offline!', e);
+				return embed.errorDesc('Server is offline!', e.toString());
 			}
 		}
 		else {

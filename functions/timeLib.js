@@ -1,4 +1,4 @@
-module.exports = { timeSince, mcTimeToRealTime, formattedTime };
+module.exports = { timeSince, mcTimeToRealTime, formattedTime, dateCalendar };
 
 function timeSince(date) {
 
@@ -52,4 +52,15 @@ function mcTimeToRealTime(time) {
 function formattedTime() {
 	const date = new Date();
 	return date.toLocaleTimeString();
+}
+
+function dateCalendar() {
+	let ts = Date.now();
+
+	let date_ob = new Date(ts);
+	let date = date_ob.getDate();
+	let month = date_ob.getMonth() + 1;
+	let year = date_ob.getFullYear();
+
+	return "*" + month + "/" + date + "/" + year + "*";
 }
