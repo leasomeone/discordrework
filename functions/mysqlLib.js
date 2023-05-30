@@ -47,7 +47,7 @@ function viewWarn(interaction) {
                 return;
             }
         }
-        interaction.reply({ embeds: [embed.error(`This user as no warns!`)] });
+        interaction.reply({ embeds: [embed.error(`This user has no warns!`)] });
       });
 }
 
