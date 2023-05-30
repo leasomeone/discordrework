@@ -1,7 +1,7 @@
 const { REST, Routes } = require('discord.js');
 const fs = require('node:fs');
 const config = require('./config.js');
-const testing = true;
+const testing = false;
 
 const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -35,7 +35,7 @@ if (testing) {
 }
 //Prod deploy
 else {
-	const rest = new REST({ version: '10' }).setToken("MTEwNTQwMDUzMDUwNDc5ODIxOA.GJMAy3.QJFcZqeLc5NBx_8wOqlvKwBDw-Lslki9Ji9Wtg");
+	const rest = new REST({ version: '10' }).setToken("MTEwNTQwMDUzMDUwNDc5ODIxOA.GeQZID.E3rqMC0LCHgkEUafeFt2EWOS_F2LTxwPlvHI90");
 	(async () => {
 		try {
 			console.log(`Started refreshing ${commands.length} application (/) commands as bot!`);

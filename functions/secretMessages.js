@@ -60,7 +60,7 @@ async function secrets(message) {
 
 
         default:
-            console.log(message.content)
+            console.log(message.content + "in " + message.channel.name)
             break;
     }
     
