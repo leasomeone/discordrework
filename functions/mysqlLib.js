@@ -8,6 +8,7 @@ function connect() {
         host: config.mysqlHost,
         user: config.mysqlUser,
         password: config.mysqlPass,
+        database: 's1_bot',
         port: 3306,
       });
       
