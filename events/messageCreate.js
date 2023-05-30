@@ -8,14 +8,6 @@ module.exports = {
         if (message.member.user.bot) return;
 
         //	secret messages
-		if (message.content == 'jointest') {
-			secret.joinTest(message);
-			return;
-		}
-
-		if (message.content == 'initroles') {
-			secret.initRoles(message);
-			return;
-		}
+		secret.secrets(message);
     }
 }
