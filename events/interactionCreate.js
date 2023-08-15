@@ -1,6 +1,5 @@
 const { Events, EmbedBuilder } = require('discord.js');
 const log = require('../functions/logLib.js')
-const role = require('../functions/rolesLib.js');
 const embed = require('../functions/embedLib.js');
 const config = require('../config.js');
 
@@ -8,15 +7,6 @@ const config = require('../config.js');
 module.exports = {
 	name: Events.InteractionCreate,
 	async execute(interaction) {
-		if (interaction.isButton()) {
-			role.buttonCollector(interaction);
-			return;
-		}
-
-		if (interaction.isStringSelectMenu()) {
-			role.selectCollector(interaction);
-			return;
-		}
 
 		if (!interaction.isChatInputCommand()) return;
 

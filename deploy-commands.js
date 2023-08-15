@@ -1,7 +1,7 @@
 const { REST, Routes } = require('discord.js');
 const fs = require('node:fs');
 const config = require('./config.js');
-const testing = false;
+const testing = true;
 
 const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -35,13 +35,13 @@ if (testing) {
 }
 //Prod deploy
 else {
-	const rest = new REST({ version: '10' }).setToken("xxx");
+	const rest = new REST({ version: '10' }).setToken(config.token);
 	(async () => {
 		try {
 			console.log(`Started refreshing ${commands.length} application (/) commands as bot!`);
 
 			 const data = await rest.put(
-				Routes.applicationCommands("1105400530504798218"),
+				Routes.applicationCommands(config.clientId),
 				{ body: commands },
 			 );
 
