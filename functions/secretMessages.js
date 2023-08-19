@@ -1,4 +1,6 @@
 const mysql =require('../functions/mysqlLib.js');
+const lang =require('../lang/en_US.json');
+
 
 module.exports = { secrets }
 
@@ -8,8 +10,11 @@ async function secrets(message) {
             mysql.connect();
             break;
 
+        case 'langtest':
+            message.reply(lang.test);
+            break;
+
         default:
-            console.log(message.content + " in " + message.channel.name)
             break;
     }
     
